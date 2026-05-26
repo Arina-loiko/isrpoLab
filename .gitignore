@@ -1,0 +1,7 @@
+Backend/LabTracker/bin/
+Backend/LabTracker/obj/
+Backend/LabTracker/labtracker.db
+Backend/LabTracker/labtracker.db-shm
+Backend/LabTracker/labtracker.db-wal
+*.user
+.vs/
