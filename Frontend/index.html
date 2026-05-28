@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учёт лабораторных работ</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Учёт лабораторных работ</h1>
+        <nav>
+            <button class="nav-btn active" onclick="showSection('labworks')">Лабораторные работы</button>
+            <button class="nav-btn" onclick="showSection('students')">Студенты</button>
+            <button class="nav-btn" onclick="showSection('subjects')">Дисциплины</button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="section-labworks" class="section">
+            <div class="section-header">
+                <h2>Лабораторные работы</h2>
+                <button class="btn-primary" onclick="openLabWorkModal()">+ Добавить</button>
+            </div>
+            <div class="filters">
+                <select id="filter-student" onchange="loadLabWorks()">
+                    <option value="">Все студенты</option>
+                </select>
+                <select id="filter-status" onchange="filterLabWorks()">
+                    <option value="">Все статусы</option>
+                    <option value="Не сдана">Не сдана</option>
+                    <option value="Сдана">Сдана</option>
+                    <option value="На доработке">На доработке</option>
+                </select>
+            </div>
+            <table id="labworks-table">
+                <thead>
+                    <tr>
+                        <th>Студент</th>
+                        <th>Дисциплина</th>
+                        <th>№</th>
+                        <th>Название</th>
+                        <th>Статус</th>
+                        <th>Оценка</th>
+                        <th>Дата сдачи</th>
+                        <th>Действия</th>
+                    </tr>
+                </thead>
+                <tbody id="labworks-body"></tbody>
+            </table>
+        </section>
+
+        <section id="section-students" class="section hidden">
+            <div class="section-header">
+                <h2>Студенты</h2>
+                <button class="btn-primary" onclick="openStudentModal()">+ Добавить</button>
+            </div>
+            <table id="students-table">
+                <thead>
+                    <tr>
+                        <th>Фамилия</th>
+                        <th>Имя</th>
+                        <th>Отчество</th>
+                        <th>Группа</th>
+                        <th>Действия</th>
+                    </tr>
+                </thead>
+                <tbody id="students-body"></tbody>
+            </table>
+        </section>
+
+        <section id="section-subjects" class="section hidden">
+            <div class="section-header">
+                <h2>Дисциплины</h2>
+                <button class="btn-primary" onclick="openSubjectModal()">+ Добавить</button>
+            </div>
+            <table id="subjects-table">
+                <thead>
+                    <tr>
+                        <th>Название</th>
+                        <th>Преподаватель</th>
+                        <th>Действия</th>
+                    </tr>
+                </thead>
+                <tbody id="subjects-body"></tbody>
+            </table>
+        </section>
+    </main>
+
+    <div id="modal-overlay" class="modal-overlay hidden" onclick="closeModal(event)">
+        <div class="modal" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h3 id="modal-title"></h3>
+                <button class="modal-close" onclick="closeModal()">✕</button>
+            </div>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
