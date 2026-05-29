@@ -12,6 +12,6 @@ public class LabWork
     public DateTime? SubmittedDate { get; set; }
     public string Notes { get; set; } = string.Empty;
 
-    public Student Student { get; set; } = null!;
-    public Subject Subject { get; set; } = null!;
+    public Student? Student { get; set; }
+    public Subject? Subject { get; set; }
 }
